@@ -5,7 +5,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
-const { ONE_SIMPLE_API_KEY = "FgLn3DYykK6pAlWBOPvDM4bQXxWSF58wUj65i4uy" } =
+const { ONE_SIMPLE_API_KEY = "fDiWZetbSUK2SuBcxxGJw3KFh4ESabSWpzl1WQtk" } =
   import.meta.env;
 
 function App() {
