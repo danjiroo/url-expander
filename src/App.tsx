@@ -5,7 +5,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
-const { ONE_SIMPLE_API_KEY = "fDiWZetbSUK2SuBcxxGJw3KFh4ESabSWpzl1WQtk" } =
+const { ONE_SIMPLE_API_KEY, EXTRACTED_URL, ORIGINAL_URL, CONVERT_URL_TO } =
   import.meta.env;
 
 function App() {
@@ -28,22 +28,16 @@ function App() {
       `https://onesimpleapi.com/api/unshorten?token=${ONE_SIMPLE_API_KEY}&url=${inputUrl}`
     );
 
-    const extractedURL = expandedUrl.slice(
-      "https://install.pandolink.com/?link=".length
-    );
+    const extractedURL = expandedUrl.slice(EXTRACTED_URL.length);
 
     const decodedURL = decodeURIComponent(extractedURL);
 
+    // this is for a different environment
+    // will add to env later
     if (outputOption === "integration") {
-      parsedUrl = decodedURL.replace(
-        "https://staging.pandolink.com/accord/app",
-        "https://integration.pandolink.com/"
-      );
+      parsedUrl = decodedURL.replace(ORIGINAL_URL, CONVERT_URL_TO);
     } else {
-      parsedUrl = decodedURL.replace(
-        "https://staging.pandolink.com/accord/app",
-        "http://localhost:3000/"
-      );
+      parsedUrl = decodedURL.replace(ORIGINAL_URL, CONVERT_URL_TO);
     }
 
     setOutputUrl(parsedUrl);
